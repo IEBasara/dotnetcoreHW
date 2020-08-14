@@ -65,7 +65,7 @@ namespace hw.Controllers
             try
             {
                 // Call the stored procedure
-                await _context.Database.ExecuteSqlRawAsync("dbo.Department_Update @p0, @p1, @p2, @p3, @p4, @p5", 
+                await _context.Database.ExecuteSqlRawAsync("exec dbo.Department_Update @p0, @p1, @p2, @p3, @p4, @p5", 
                     new object[] { department.DepartmentId, department.Name, department.Budget, department.StartDate, department.InstructorId, department.RowVersion });
 
                 //await _context.SaveChangesAsync();
@@ -94,7 +94,7 @@ namespace hw.Controllers
         public async Task<ActionResult<Department>> PostDepartment(Department department)
         {
             // Call the stored procedure
-            await _context.Database.ExecuteSqlRawAsync("dbo.Department_Insert @p0, @p1, @p2, @p3", new object[] { department.Name, department.Budget, department.StartDate, department.InstructorId });
+            await _context.Database.ExecuteSqlRawAsync("exec dbo.Department_Insert @p0, @p1, @p2, @p3", new object[] { department.Name, department.Budget, department.StartDate, department.InstructorId });
 
             //_context.Department.Add(department);
             //await _context.SaveChangesAsync();
@@ -116,7 +116,7 @@ namespace hw.Controllers
             }
             
             // Call the stored procedure
-            await _context.Database.ExecuteSqlRawAsync("dbo.Department_Delete @p0, @p1", new object[] { department.DepartmentId, department.RowVersion });
+            await _context.Database.ExecuteSqlRawAsync("exec dbo.Department_Delete @p0, @p1", new object[] { department.DepartmentId, department.RowVersion });
             //_context.Department.Remove(department);
             //await _context.SaveChangesAsync();
 
