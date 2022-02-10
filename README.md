@@ -21,7 +21,7 @@
 ## Install
 
 ```sh
-npx erictrash
+not known
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ No comment
 ## Run tests
 
 ```sh
-npx trash test
+not known
 ```
 
 ## Author
